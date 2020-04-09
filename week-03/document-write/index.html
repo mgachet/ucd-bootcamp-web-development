@@ -11,13 +11,21 @@
 
     <h1>Testing document.write()</h1>
     <script>
-        document.write("<p>This text is inserted using document.write()</p>");
+        document.write("<p>This text is inserted using document.write()</p>");       
     </script>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, autem delectus accusamus quis corrupti magni
         voluptate modi voluptatibus, molestiae quos laudantium porro veritatis amet molestias est tempore, nostrum
         nesciunt sed.</p>
 
-
+    <script>
+        var stateCheck = setInterval(() => {
+            if (document.readyState === 'complete') {
+                clearInterval(stateCheck);
+                document.write("This will overwrite all html" +
+                    " in the page after 2 seconds");
+            }
+        }, 2000);
+    </script>
 
 </body>
 
